@@ -1,7 +1,6 @@
 package engineTester;
 
 import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.GL11;
 
 import models.RawModel;
 import models.TexturedModel;
