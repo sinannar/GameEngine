@@ -148,3 +148,42 @@ http://www.euclideanspace.com/maths/g...
 More matrices:
 http://www.opengl-tutorial.org/beginn...
 
+----------------------------------------------
+#Video 8 - OpenGL 3D Game Tutorial 8: Model, View & Projection Matrices
+
+LWJGL tutorial series on how to create a 3D Java game with OpenGL!
+
+This week create a rotating 3D cube using model, view and projection matrices!
+
+Full code download for this episode:
+https://www.dropbox.com/sh/1glu6x4ajd...
+
+Cube vertices: https://www.dropbox.com/s/xcq0xa3yqr4...
+
+Projection Matrix Explained: http://www.songho.ca/opengl/gl_projec...
+
+LWJGL Wiki:
+http://wiki.lwjgl.org/wiki/Main_Page
+
+
+Common Problems:
+
+-Don't forget to multiply the transformation matrix with the vertex position in the vertex shader. This was shown at the end of the last tutorial.
+
+-Calling the getAllUniformLocations() method: We did this in the last episode in the ShaderProgram class constructor, a lot of people leave this out accidentally.
+
+- In the getAllUniformLocations() method make sure that you're setting the value of the "location_transformationMatrix" variable. Getting the location is not enough, you need to store it too!
+
+-After adding the projection matrix your entity's z position needs to be more negative than -NEAR_PLANE, otherwise it will be outside the view of the "camera". Set your entity's z position to -1 like I did at 11:38 in the video.
+
+-The order that you multiply the matrices together in the vertex shader matters! Matrices are not like normal numbers, and multiplying them together in a different order will give you a different result.
+
+-The spelling of the uniform variable names: The names must be spelled EXACTLY the same in the StaticShader getAllUniformLocations() method as they are in the shader code.
+
+-The projection matrix code: Double check the code for the projection matrix, I've had quite a few emails from people who have had errors, and it has ended up being a mistake in the createProjectionMatrix() method.
+
+-When creating the transformation matrix make sure that you didn't copy and paste the 3 rotation lines and forget to change them for each axis. Make sure that it looks like this:
+ Matrix4f.rotate((float) Math.toRadians(rx), new Vector3f(1, 0, 0), matrix, matrix);
+ Matrix4f.rotate((float) Math.toRadians(ry), new Vector3f(0, 1, 0), matrix, matrix);
+ Matrix4f.rotate((float) Math.toRadians(rz), new Vector3f(0, 0, 1), matrix, matrix);
+Check the vectors and the rx, ry, and rz!
