@@ -6,8 +6,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/Sinan NAR/Desktop/game librarires/lib/jars/lwjgl.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sinan NAR/Desktop/game librarires/lib/jars/lwjgl_util.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sinan NAR/Desktop/game librarires/lib/jars/slick-util.jar"/>
+	<classpathentry kind="lib" path="lib/jars/lwjgl_util.jar"/>
+	<classpathentry kind="lib" path="lib/jars/lwjgl.jar"/>
+	<classpathentry kind="lib" path="lib/jars/slick-util.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
