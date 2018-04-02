@@ -2,3 +2,149 @@
 
 I am following this youtube series to implement this content in this repo
 https://youtu.be/VS8wlS9hF8E
+
+----------------------------------------------
+#Video 1 - OpenGL 3D Game Tutorial 1: The Display
+
+LWJGL 2 tutorial series on how to create a 3D Java game with OpenGL!
+
+Tutorial about setting up the project:
+https://youtu.be/Jdkq-aSFEA0
+
+Full code:
+https://github.com/TheThinMatrix/Open...
+
+
+Common Problems:
+
+-In case you had annotations off, you need to do the ContextAttribs stuff all in one line like this:
+ContextAttribs attribs = new ContextAttribs(3, 2).withForwardCompatible(true).withProfileCore(true);
+
+-If you get the following error: org.lwjgl.LWJGLException: Could not create context (WGL_ARB_create_context) then your computer may not support the version of OpenGL that we're trying to use (version 3.2). Try removing the parameters from the Display.create() method and try again.
+
+- Make sure you didn't miss the "!" in the "(!Display.isCloseRequested())" part.
+
+
+LWJGL Wiki: http://lwjgl.org/wiki/index.php?title...
+
+My Youtube Channel: https://www.youtube.com/user/ThinMatrix
+Follow me on Twitter: https://twitter.com/ThinMatrix
+Check out my game on IndieDB: http://www.indiedb.com/games/socuwan
+
+----------------------------------------------
+#Video 2 - OpenGL 3D Game Tutorial 2: VAOs and VBOs
+
+LWJGL tutorial series on how to create a 3D Java game with OpenGL!
+
+This week we learn how to render a model using VAOs and VBOs.
+
+Here are the vertices that we used:
+
+  float[] vertices = {
+    -0.5f, 0.5f, 0f,
+    -0.5f, -0.5f, 0f,
+    0.5f, -0.5f, 0f,
+    0.5f, -0.5f, 0f,
+    0.5f, 0.5f, 0f,
+    -0.5f, 0.5f, 0f
+  };
+
+Full code available here: https://github.com/TheThinMatrix/Open...
+LWJGL Wiki: http://lwjgl.org/wiki/index.php?title... 
+----------------------------------------------
+#Video 3 - OpenGL 3D Game Tutorial 3: Rendering with Index Buffers
+
+LWJGL tutorial series on how to create a 3D Java game with OpenGL!
+
+This week we learn a more efficient way to render our quad using an index buffer.
+
+Full code available here: https://github.com/TheThinMatrix/Open...
+
+LWJGL Wiki: http://lwjgl.org/wiki/index.php?title... 
+
+
+Common Problems
+
+- Make sure that you use the new vertex positions array - it is different from last episode!
+
+-In the loadToVao() method the last parameter of the RawModel constructor has now changed to "indices.length" instead of "positions.length/3". Make sure you've made this change!
+
+-Creating the display must be the first thing you do in the main method. Don't try initializing the RawModel first.
+
+If you get the " Cannot use offsets when Element Array Buffer Object is disabled" error, check the following:
+
+-Check that you are calling the "bindIndicesVBO()" from the "loadToVao()" method.
+
+-Don't unbind the index buffer anywhere! Each VAO has one special slot for an index buffer, and unbinding the index buffer will remove it from that slot.
+----------------------------------------------
+#Video 4 - OpenGL 3D Game Tutorial 4: Introduction to Shaders
+
+LWJGL tutorial series on how to create a 3D Java game with OpenGL!
+
+So in this part of this week's tutorial I'll be explaining what Shaders do and how they work, and then in the next episode we'll be programming some ourselves.
+
+LWJGL Wiki: http://lwjgl.org/wiki/index.php?title...
+----------------------------------------------
+#Video 5 - OpenGL 3D Game Tutorial 5: Coloring using Shaders
+
+LWJGL tutorial series on how to create a 3D Java game with OpenGL!
+
+We put our knowledge of opengl shaders to use in this episode and create a shader program to color our quad.
+
+Full code download (only use if you get stuck! You'd have no chance of understanding later tutorials if you skip this one!):
+https://www.dropbox.com/sh/qtfhwru70y...
+
+LWJGL Wiki: http://lwjgl.org/wiki/index.php?title...
+
+LWJGL Download: http://lwjgl.org/download.php
+
+Slick-Utils Download: http://slick.ninjacave.com/slick-util/
+ 
+
+Common Mistakes:
+
+-If you get a large access violation error then check that you aren't trying to initialize your shader before you've created the display. Creating the display MUST happen before you do anything else OpenGL related.
+
+-Make sure that your "out" variable in the vertex shader has the EXACT same name as the "in" variable in the fragment shader.
+
+-If you get the following error:  "'gl_Position' : undeclared identifier"
+then check that you didn't load up the vertex shader code twice in the StaticShader. This error usually occurs when you load up and compile vertex shader code as a fragment shader.
+
+-Make sure that in the MainGameLoop you render the quad AFTER starting the shader program but BEFORE stopping it. The shader program needs to be running when you render!
+
+-In the ShaderProgram constructor make sure you're calling glAttachShader() for both the vertex shader and the fragment shader.
+----------------------------------------------
+#Video 6 - OpenGL 3D Game Tutorial 6: Texturing
+
+LWJGL tutorial series on how to create a 3D Java game with OpenGL!
+
+This week we learn how to texture models using opengl.
+
+Common mistakes:
+
+- If you get the "fatal" error that I get at the end of the video then check that you're storing the texture coordinate VBO in attribute 1 of the VAO and that you indicate that they are 2D coordinates (see 10:51 in the video)
+
+-Make sure that your "out" variables in the vertex shader have the EXACT same pass as the corresponding "in" variables in the fragment shader. You can't call it "pass_textureCoords" in one and "pass_textureCoordinates" in the other.
+
+-Make sure that the names of the "in" variables in the vertex shader are spelled correctly in the bindAttributes() method in the StaticShader class. 
+
+
+LWJGL Wiki: http://lwjgl.org/wiki/index.php?title...
+----------------------------------------------
+#Video 7 - OpenGL 3D Game Tutorial 7: Matrices & Uniform Variables
+
+LWJGL tutorial series on how to create a 3D Java game with OpenGL!
+
+This week we learn about uniform variables and matrices.
+
+Simple matrix maths: 
+http://www.mathsisfun.com/algebra/mat...
+
+Transformation Matrix: http://en.wikipedia.org/wiki/Transfor...
+
+Euler rotations to matrix conversion: 
+http://www.euclideanspace.com/maths/g...
+
+More matrices:
+http://www.opengl-tutorial.org/beginn...
+
