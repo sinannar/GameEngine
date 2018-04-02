@@ -47,7 +47,8 @@ public class MainGameLoop {
 		Entity entity = new Entity(staticModel, new Vector3f(-1,0,0), 0,0,0,1);
 		
 		while(!Display.isCloseRequested()){
-			//game logic
+			entity.increatePosition(0.002f, 0, 0);
+			entity.increaseRotation(0, 1, 0);
 			renderer.prepare();
 			shader.start();
 			renderer.render(entity,shader);
