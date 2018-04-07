@@ -300,8 +300,25 @@ Source: Stanford University Computer Graphics Laboratory
 
 
 ----------------------------------------------
-#Video  - 
+#Video 14 - OpenGL 3D Game Tutorial 14: Simple Terrain
 
+This week we program a terrain renderer and generate a simple flat terrain!
+
+Code for generating terrain: https://www.dropbox.com/s/47qk4yrz5v9...
+
+Full code download (try doing the tutorial first though!):
+https://www.dropbox.com/sh/37h3ri1veo...
+
+
+Common Problems:
+
+-If you can't see the terrain make sure your camera is in the right position! It needs to have a y position of above 0, and if you still can't see the terrain then try turning the camera around by setting the "yaw" to 180.
+
+-Make sure that you're starting and stopping the *terrain shader* (and NOT the static shader program) before and after rendering the terrain in the MasterRenderer's render() method.
+
+-If the texture on the terrain only looks good in one corner then try adding these 2 lines into your loadTexture method before returning the texture's ID:
+   GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL11.GL_REPEAT);
+   GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL11.GL_REPEAT);
 
 ----------------------------------------------
 #Video  - 
