@@ -31,13 +31,13 @@ public class MainGameLoop {
 		ModelTexture texture = new ModelTexture(loader.loadTexture("white"));
 		TexturedModel staticModel = new TexturedModel(model,texture);
 		
-		Entity entity = new Entity(staticModel, new Vector3f(0,0,-25), 0,0,0,1);
+		Entity entity = new Entity(staticModel, new Vector3f(0,-5,-25), 0,0,0,1);
 		Light light = new Light(new Vector3f(0,0,-20),new Vector3f(1,1,1));
 		
 		Camera camera = new Camera();
 		
 		while(!Display.isCloseRequested()){
-			entity.increaseRotation(0, 1, 0);
+			entity.increaseRotation(0, 0.5f, 0);
 			camera.move();
 			renderer.prepare();
 			shader.start();
