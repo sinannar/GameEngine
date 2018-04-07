@@ -197,5 +197,78 @@ An extra theory-only tutorial this week, just to stop the tutorial on Saturday f
 Download Blender for free: http://www.blender.org/download/
 Download the stall model: https://www.dropbox.com/sh/7l598pr7b4...
 
+----------------------------------------------
+#Video 10 - OpenGL 3D Game Tutorial 10: Loading 3D Models
+
+This week we create an OBJ parser to load 3D models made in Blender into our game!
+
+Download the stall model: https://www.dropbox.com/sh/7l598pr7b4...
+
+Download Blender for free: http://www.blender.org/download/
+
+Common Problems:
+
+-If you're using your own model then make sure to texture it in Blender first using UV mapping!
+
+-The size of the normals array is "vertices.size() * 3" and NOT "normals.size() * 3". Check 6:38 in the video and make sure you got this right.
+
+- Make sure your texture file has dimensions that are powers of 2 (128x128, 256x256, 512x512 etc.) The file may have got resized when you downloaded it.
+
+-Make sure you used "1 - currentTex.y" in the processVertex() method.
+
+-If you're using your own model and the texture looks distorted in the game but fine in Blender then you may be experiencing the texture seam problem that I talked about in the previous episode. You can fix this by using the improved OBJLoader provided at the end of episode 16.
+
+
+----------------------------------------------
+#Video 11 - OpenGL 3D Game Tutorial 11: Per-Pixel Lighting
+
+This week we add per-pixel diffuse lighting to the game, making everything look that little bit more epic!
+
+
+Common Problems:
+
+- Make sure that you are calling bindAttributes() *before* glLinkProgram() in the ShaderProgram constructor. Also, check that you spelled the "in" variable names correctly in the "bindAttributes()" method in the StaticShader class.
+
+-If your dragon seems to have lots of white and black patches then it could be one of 2 problems:
+
+1. Your texture dimensions might not be powers of 2 (64x64, 128x128, 256x256 etc.)
+
+2. If they are powers of 2 then try adding the following lines to the end of the loadTexture() method, just before returning the texture ID:
+   GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
+   GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
+   GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_S, GL11.GL_REPEAT);
+   GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL11.GL_REPEAT);
+
+
+Stanford Dragon Model: https://www.dropbox.com/sh/gscenjij7n...
+Source: Stanford University Computer Graphics Laboratory
+
+Vector maths basics:
+http://www.bbc.co.uk/bitesize/higher/...
+
+Dot product: 
+http://betterexplained.com/articles/v...
+
+
+----------------------------------------------
+#Video  - 
+
+
+----------------------------------------------
+#Video  - 
+
+
+----------------------------------------------
+#Video  - 
+
+
+----------------------------------------------
+#Video  - 
+
+
+----------------------------------------------
+#Video  - 
+
+
 
 
