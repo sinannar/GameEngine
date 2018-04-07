@@ -149,6 +149,7 @@ More matrices:
 http://www.opengl-tutorial.org/beginn...
 
 ----------------------------------------------
+
 #Video 8 - OpenGL 3D Game Tutorial 8: Model, View & Projection Matrices
 
 LWJGL tutorial series on how to create a 3D Java game with OpenGL!
@@ -187,3 +188,14 @@ Common Problems:
  Matrix4f.rotate((float) Math.toRadians(ry), new Vector3f(0, 1, 0), matrix, matrix);
  Matrix4f.rotate((float) Math.toRadians(rz), new Vector3f(0, 0, 1), matrix, matrix);
 Check the vectors and the rx, ry, and rz!
+
+----------------------------------------------
+#Video 9 - OpenGL 3D Game Tutorial 9: OBJ File Format
+
+An extra theory-only tutorial this week, just to stop the tutorial on Saturday from being too long. We'll be learning about the OBJ file format in this episode, and then on Saturday we'll program a parser that can load up models saved in this format into our game!
+
+Download Blender for free: http://www.blender.org/download/
+Download the stall model: https://www.dropbox.com/sh/7l598pr7b4...
+
+
+
