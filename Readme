@@ -4,6 +4,17 @@ I am following this youtube series to implement this content in this repo
 https://youtu.be/VS8wlS9hF8E
 
 ----------------------------------------------
+#Video for setting up environment - Setting up a LWJGL Project ( https://www.youtube.com/watch?v=Jdkq-aSFEA0 )
+
+watch the video, setup the environment, you need Eclipse and JDK then these followings 
+
+LWJGL 2 download:
+http://sourceforge.net/projects/java-...
+
+Slick-Utils Download:
+http://slick.ninjacave.com/slick-util...
+
+----------------------------------------------
 #Video 1 - OpenGL 3D Game Tutorial 1: The Display
 
 LWJGL 2 tutorial series on how to create a 3D Java game with OpenGL!
