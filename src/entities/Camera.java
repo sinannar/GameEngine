@@ -17,19 +17,27 @@ public class Camera {
 	{
 		if(Keyboard.isKeyDown(Keyboard.KEY_W))
 		{
-			position.z -= 0.02f;
+			position.z -= 0.1f;
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_D))
 		{
-			position.x += 0.02f;
+			position.x += 0.1f;
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_A))
 		{
-			position.x -= 0.02f;
+			position.x -= 0.1f;
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_S))
 		{
-			position.z += 0.02f;
+			position.z += 0.1f;
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_UP))
+		{
+			position.y += 0.1f;
+		}
+		if(Keyboard.isKeyDown(Keyboard.KEY_DOWN))
+		{
+			position.y -= 0.1f;
 		}
 	}
 	
