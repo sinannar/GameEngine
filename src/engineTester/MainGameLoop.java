@@ -28,6 +28,8 @@ public class MainGameLoop {
 		 DisplayManager.createDisplay();
 	        Loader loader = new Loader();
 	         
+	        
+	        //
 	         
 	        RawModel model = OBJLoader.loadObjModel("tree", loader);
 	         
