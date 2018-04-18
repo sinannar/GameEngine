@@ -321,8 +321,13 @@ Common Problems:
    GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_WRAP_T, GL11.GL_REPEAT);
 
 ----------------------------------------------
-#Video  - 
+#Video 15 - OpenGL 3D Game Tutorial 15: Transparency
 
+LWJGL tutorial series on how to create a 3D Java game with OpenGL!
+
+This week we add support for textures with transparency, allowing us to add loads of low poly plant-life into the game!
+
+Models & Textures: https://www.dropbox.com/sh/oxq37wnc5a...
 
 ----------------------------------------------
 #Video  - 
