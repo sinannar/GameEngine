@@ -29,9 +29,11 @@ public class MainGameLoop {
 		DisplayManager.createDisplay();
         Loader loader = new Loader();	         
 	    
-        RawModel model = OBJLoader.loadObjModel("tree", loader);
+        //RawModel model = OBJLoader.loadObjModel("tree", loader);
+        ModelData data = OBJFileLoader.loadOBJ("tree");
+        RawModel treeModel = loader.loadToVAO(data.getVertices(), data.getTextureCoords(), data.getNormals(), data.getIndices());
          
-        TexturedModel staticModel = new TexturedModel(model,new ModelTexture(loader.loadTexture("tree")));
+        TexturedModel staticModel = new TexturedModel(treeModel,new ModelTexture(loader.loadTexture("tree")));
         TexturedModel grass = new TexturedModel(OBJLoader.loadObjModel("grassModel", loader),new ModelTexture(loader.loadTexture("grassTexture")));
         TexturedModel fern = new TexturedModel(OBJLoader.loadObjModel("fern", loader),new ModelTexture(loader.loadTexture("fern")));
         TexturedModel bunny = new TexturedModel(OBJLoader.loadObjModel("bunny", loader),new ModelTexture(loader.loadTexture("tree")));
