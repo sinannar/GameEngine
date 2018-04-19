@@ -18,7 +18,7 @@ import renderEngine.MasterRenderer;
 import renderEngine.OBJLoader;
 import terrains.Terrain;
 import textures.ModelTexture;
-
+import objConverter.*;
 
 //test commit from another computer
 public class MainGameLoop {
@@ -27,9 +27,8 @@ public class MainGameLoop {
 		
 
 		DisplayManager.createDisplay();
-        Loader loader = new Loader();
-	         
-	         
+        Loader loader = new Loader();	         
+	    
         RawModel model = OBJLoader.loadObjModel("tree", loader);
          
         TexturedModel staticModel = new TexturedModel(model,new ModelTexture(loader.loadTexture("tree")));
@@ -37,7 +36,7 @@ public class MainGameLoop {
         TexturedModel fern = new TexturedModel(OBJLoader.loadObjModel("fern", loader),new ModelTexture(loader.loadTexture("fern")));
         TexturedModel bunny = new TexturedModel(OBJLoader.loadObjModel("bunny", loader),new ModelTexture(loader.loadTexture("tree")));
         TexturedModel stall = new TexturedModel(OBJLoader.loadObjModel("stall", loader),new ModelTexture(loader.loadTexture("stallTexture")));
-        
+
         grass.getTexture().setHasTransparency(true);
         fern.getTexture().setHasTransparency(true);
         grass.getTexture().setUseFakeLightning(true);
