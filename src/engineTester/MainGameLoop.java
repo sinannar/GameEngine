@@ -18,6 +18,8 @@ import renderEngine.MasterRenderer;
 import renderEngine.OBJLoader;
 import terrains.Terrain;
 import textures.ModelTexture;
+import textures.TerrainTexture;
+import textures.TerrainTexturePack;
 import objConverter.*;
 
 //test commit from another computer
@@ -33,6 +35,16 @@ public class MainGameLoop {
         ModelData data = OBJFileLoader.loadOBJ("tree");
         RawModel treeModel = loader.loadToVAO(data.getVertices(), data.getTextureCoords(), data.getNormals(), data.getIndices());
          
+        /* TEXTURE PACK START */
+        TerrainTexture backgroundTexture = new TerrainTexture(loader.loadTexture("grassy"));
+        TerrainTexture rTexture = new TerrainTexture(loader.loadTexture("dirt"));
+        TerrainTexture gTexture = new TerrainTexture(loader.loadTexture("pinkFlowers"));
+        TerrainTexture bTexture = new TerrainTexture(loader.loadTexture("path"));
+        
+        TerrainTexturePack texturePack = new TerrainTexturePack(backgroundTexture, rTexture, gTexture, bTexture);
+        TerrainTexture blendMap = new TerrainTexture(loader.loadTexture("blendMap"));
+        /* TEXTURE PACK ENDS  */
+        
         TexturedModel staticModel = new TexturedModel(treeModel,new ModelTexture(loader.loadTexture("tree")));
         TexturedModel grass = new TexturedModel(OBJLoader.loadObjModel("grassModel", loader),new ModelTexture(loader.loadTexture("grassTexture")));
         TexturedModel fern = new TexturedModel(OBJLoader.loadObjModel("fern", loader),new ModelTexture(loader.loadTexture("fern")));
@@ -57,10 +69,10 @@ public class MainGameLoop {
          
         Light light = new Light(new Vector3f(20000,20000,2000),new Vector3f(1,1,1));
          
-        Terrain terrain = new Terrain(-1,-1,loader,new ModelTexture(loader.loadTexture("grass")));
-        Terrain terrain2 = new Terrain(0,-1,loader,new ModelTexture(loader.loadTexture("grass")));
-        Terrain terrain3 = new Terrain(-1,0,loader,new ModelTexture(loader.loadTexture("grass")));
-        Terrain terrain4 = new Terrain(0,0,loader,new ModelTexture(loader.loadTexture("grass")));
+        Terrain terrain = new Terrain(-1,-1,loader,texturePack,blendMap);
+        Terrain terrain2 = new Terrain(0,-1,loader,texturePack,blendMap);
+        Terrain terrain3 = new Terrain(-1,0,loader,texturePack,blendMap);
+        Terrain terrain4 = new Terrain(0,0,loader,texturePack,blendMap);
          
         Camera camera = new Camera();   
         MasterRenderer renderer = new MasterRenderer();
