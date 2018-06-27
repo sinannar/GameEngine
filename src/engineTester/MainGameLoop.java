@@ -86,13 +86,13 @@ public class MainGameLoop {
             player.move();
             renderer.processEntity(player);
             
-           /* renderer.processTerrain(terrain);
+            renderer.processTerrain(terrain);
             renderer.processTerrain(terrain2);
             renderer.processTerrain(terrain3);
             renderer.processTerrain(terrain4);
             for(Entity entity:entities){
                 renderer.processEntity(entity);
-            }*/
+            }
             renderer.render(light, camera);
             DisplayManager.updateDisplay();
         }
