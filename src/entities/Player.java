@@ -19,6 +19,8 @@ public class Player extends Entity{
 	private float currentTurnSpeed = 0;
 	private float upwardsSpeed = 0;
 	
+	private boolean isInAir = false;
+	
 	public Player(TexturedModel model, Vector3f position, float rotX, float rotY, float rotZ, float scale) {
 		super(model, position, rotX, rotY, rotZ, scale);
 		// TODO Auto-generated constructor stub
@@ -37,11 +39,16 @@ public class Player extends Entity{
 		if(super.getPosition().y<TERRAIN_HEIGHT) {
 			upwardsSpeed = 0;
 			super.getPosition().y = TERRAIN_HEIGHT;
+			isInAir = false;
 		}
 	}
 	
 	private void jump() {
-		this.upwardsSpeed = JUMP_POWER;
+		if(!isInAir)
+		{
+			this.upwardsSpeed = JUMP_POWER;
+			isInAir = true;
+		}
 	}
 	
 	private void checkInputs() {
