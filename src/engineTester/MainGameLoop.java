@@ -52,6 +52,8 @@ public class MainGameLoop {
         TexturedModel bunny = new TexturedModel(OBJLoader.loadObjModel("bunny", loader),new ModelTexture(loader.loadTexture("tree")));
         TexturedModel stall = new TexturedModel(OBJLoader.loadObjModel("stall", loader),new ModelTexture(loader.loadTexture("stallTexture")));
 
+        TexturedModel playerModel = new TexturedModel(OBJLoader.loadObjModel("person", loader),new ModelTexture(loader.loadTexture("playerTexture")));
+
         grass.getTexture().setHasTransparency(true);
         fern.getTexture().setHasTransparency(true);
         grass.getTexture().setUseFakeLightning(true);
@@ -77,7 +79,7 @@ public class MainGameLoop {
          
         MasterRenderer renderer = new MasterRenderer();
          
-        Player player = new Player ( bunny, new Vector3f(),0,0,0,1);
+        Player player = new Player ( playerModel, new Vector3f(),0,0,0,1);
         Camera camera = new Camera(player);   
         
         while(!Display.isCloseRequested()){
