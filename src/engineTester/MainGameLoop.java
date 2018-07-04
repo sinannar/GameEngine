@@ -75,10 +75,10 @@ public class MainGameLoop {
         Terrain terrain3 = new Terrain(-1,0,loader,texturePack,blendMap);
         Terrain terrain4 = new Terrain(0,0,loader,texturePack,blendMap);
          
-        Camera camera = new Camera();   
         MasterRenderer renderer = new MasterRenderer();
          
         Player player = new Player ( bunny, new Vector3f(),0,0,0,1);
+        Camera camera = new Camera(player);   
         
         while(!Display.isCloseRequested()){
             camera.move();
@@ -91,7 +91,7 @@ public class MainGameLoop {
             renderer.processTerrain(terrain3);
             renderer.processTerrain(terrain4);
             for(Entity entity:entities){
-                renderer.processEntity(entity);
+                //renderer.processEntity(entity);
             }
             renderer.render(light, camera);
             DisplayManager.updateDisplay();
